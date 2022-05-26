@@ -4,24 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <TextView
+    tools:context=".ui.MainActivity">
+    <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:onClick="signOut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:onClick="signOut"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/rvPost"
+        />
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,4 +33,50 @@
         android:indeterminateTint="@color/purple_500"
         android:visibility="gone"
         android:id="@+id/progressBarMain"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:backgroundTint="@color/purple_500"
+        app:tint="@android:color/white"
+        app:srcCompat="@drawable/ic_add"
+        android:id="@+id/createPostFab"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/writeFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/purple_500"
+        android:clickable="true"
+        android:visibility="invisible"
+        android:focusable="true"
+        app:layout_constraintBottom_toTopOf="@+id/createPostFab"
+        app:layout_constraintEnd_toEndOf="@+id/createPostFab"
+        app:srcCompat="@drawable/ic_pen"
+        app:tint="@android:color/white"
+        />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_500"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/writeFab"
+        app:layout_constraintEnd_toEndOf="@+id/writeFab"
+        app:srcCompat="@drawable/ic_image"
+        app:tint="@android:color/white"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/imageFab"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
